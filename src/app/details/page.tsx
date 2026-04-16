@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
 import { RightFloatingActions } from "@/app/01-right/right-floating-actions";
@@ -10,9 +11,9 @@ import { Navbar } from "@/components/blocks/navbar";
 
 const DETAILS_CONTENT: Record<string, string> = {
   个人电脑:
-    "dofeng技术已构建全栈式个人电脑产品矩阵，涵盖笔记本电脑、一体机、台式机、打印机及电脑周边配件等多元产品组合，与全球头部品牌客户建立稳定合作关系。通过在智能手机行业的积累，将核心技术及创新设计等迁移至 PC 产品研发中，加速 PC 产品的迭代创新；同时，依托公司智能产品平台的竞争优势，个人电脑业务的研发效率、质量管理、生产制造、运营效率均处于行业领先水平。",
+    "dongliang技术已构建全栈式个人电脑产品矩阵，涵盖笔记本电脑、一体机、台式机、打印机及电脑周边配件等多元产品组合，与全球头部品牌客户建立稳定合作关系。通过在智能手机行业的积累，将核心技术及创新设计等迁移至 PC 产品研发中，加速 PC 产品的迭代创新；同时，依托公司智能产品平台的竞争优势，个人电脑业务的研发效率、质量管理、生产制造、运营效率均处于行业领先水平。",
   数据中心:
-    "面向云计算与大模型时代，dofeng技术构建覆盖服务器、存储、网络与基础软件的全栈数据中心能力。通过高密度算力设计、智能运维平台与绿色节能方案，帮助企业实现弹性扩容、稳定交付与长期可持续运营，持续提升关键业务系统的可靠性与效率。",
+    "面向云计算与大模型时代，dongliang技术构建覆盖服务器、存储、网络与基础软件的全栈数据中心能力。通过高密度算力设计、智能运维平台与绿色节能方案，帮助企业实现弹性扩容、稳定交付与长期可持续运营，持续提升关键业务系统的可靠性与效率。",
 };
 
 const getFallbackDescription = (title: string) =>
@@ -172,9 +173,13 @@ function TechFeatureSection({
       >
         <div className="w-1/2">
           <div className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-xl shadow-black/10">
-            <img
+            <Image
               src={imageUrl}
               alt={title}
+              width={1600}
+              height={1000}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={75}
               className="h-[70vh] w-full object-cover"
             />
           </div>

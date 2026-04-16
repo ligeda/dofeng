@@ -259,15 +259,20 @@ export const Navbar = () => {
           className="flex shrink-0 items-center gap-2"
         >
           <Image
-            src="/logo.svg"
-            alt="logo"
-            width={94}
-            height={18}
-            className={cn(
-              "brightness-0 transition duration-300",
-              isExpanded ? "invert-0" : "invert group-hover:invert-0",
-            )}
+            src="/favicon/favicon.svg"
+            alt="dongliang logo"
+            width={20}
+            height={20}
+            className="shrink-0 rounded-sm"
           />
+          <span
+            className={cn(
+              "text-sm font-semibold tracking-wide transition duration-300",
+              isExpanded ? "text-black" : "text-white group-hover:text-black",
+            )}
+          >
+            dongliang
+          </span>
         </Link>
 
         <div

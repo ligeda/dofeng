@@ -1,5 +1,5 @@
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import Script from "next/script";
 
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
@@ -56,45 +56,33 @@ const dmSans = localFont({
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+    process.env.NEXT_PUBLIC_APP_URL || "http://47.116.21.116",
   ),
   title: {
-    default: "dofeng技术 - Modern Next.js Template",
-    template: "%s | dofeng",
+    default: "dongliang技术支持",
+    template: "%s | dongliang技术支持",
   },
   description:
-    "dofeng技术是一家专注于人工智能技术研发的公司，致力于为客户提供智能化的解决方案。",
+    "dongliang技术是一家专注于人工智能技术研发的公司，致力于为客户提供智能化的解决方案。",
   keywords: [
-    "dofeng技术",
+    "dongliang技术支持",
     "智能研发中台",
     "实时数据指挥舱",
     "人工智能",
     "解决方案",
   ],
-  authors: [{ name: "dofeng技术" }],
-  creator: "dofeng技术",
-  publisher: "dofeng技术",
+  authors: [{ name: "dongliang技术" }],
+  creator: "dongliang技术",
+  publisher: "dongliang技术",
   robots: {
     index: true,
     follow: true,
   },
   icons: {
-    icon: [
-      { url: "/favicon/favicon.ico", sizes: "48x48" },
-      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon/favicon.ico" },
-    ],
-    apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180" }],
-    shortcut: [{ url: "/favicon/favicon.ico" }],
+    icon: [{ url: "/favicon/favicon.svg", type: "image/svg+xml" }],
+    shortcut: [{ url: "/favicon/favicon.svg", type: "image/svg+xml" }],
   },
   openGraph: {
     title: "Mainline - Modern Next.js Template",
@@ -131,13 +119,15 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <script
-          async
-          crossOrigin="anonymous"
-          src="https://tweakcn.com/live-preview.min.js"
-        />
+        {process.env.NODE_ENV !== "production" ? (
+          <Script
+            async
+            crossOrigin="anonymous"
+            src="https://tweakcn.com/live-preview.min.js"
+          />
+        ) : null}
       </head>
-      <body className={`${dmSans.variable} ${inter.variable} antialiased`}>
+      <body className={`${dmSans.variable} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider
             attribute="class"

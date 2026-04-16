@@ -35,7 +35,11 @@ type TabsListProps = {
 };
 
 export function TabsList({ className, children }: TabsListProps) {
-  return <div className={cn("flex h-full items-center gap-10", className)}>{children}</div>;
+  return (
+    <div role="tablist" className={cn("flex h-full items-center gap-10", className)}>
+      {children}
+    </div>
+  );
 }
 
 type TabsTriggerProps = {
