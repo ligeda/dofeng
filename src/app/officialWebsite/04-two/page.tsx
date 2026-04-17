@@ -42,7 +42,6 @@ function Section04Two() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Reset then trigger to replay animation on every re-entry.
           setIsVisible(false);
           window.requestAnimationFrame(() => {
             setIsVisible(true);
@@ -101,10 +100,14 @@ function Section04Two() {
               >
                 <div className="min-w-0">
                   <div className="flex items-end gap-3">
-                    <p className="text-4xl font-black leading-none text-white">{item.counter}</p>
+                    <p className="text-4xl font-black leading-none text-white">
+                      {item.counter}
+                    </p>
                     <div className="flex flex-col leading-tight">
                       <span className="text-xs text-white/80">{item.metaTop}</span>
-                      <span className="text-xs text-white/80">{item.metaBottom}</span>
+                      <span className="text-xs text-white/80">
+                        {item.metaBottom}
+                      </span>
                     </div>
                   </div>
                   <p className="mt-2 text-sm text-white/85">{item.subline}</p>

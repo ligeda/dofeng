@@ -16,7 +16,6 @@ function Section02Right() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Retrigger animation every time this section becomes visible.
           setIsButtonVisible(false);
           window.requestAnimationFrame(() => {
             setIsButtonVisible(true);

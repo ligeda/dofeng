@@ -159,7 +159,7 @@ const createDetailsHref = (current: string, sibling: string) => {
     active: current,
   }).toString();
 
-  return `/details?${query}`;
+  return `/officialWebsite/details?${query}`;
 };
 
 export const Navbar = () => {
@@ -255,7 +255,7 @@ export const Navbar = () => {
         }}
       >
         <Link
-          href="/"
+          href="/officialWebsite"
           className="flex shrink-0 items-center gap-2"
         >
           <Image

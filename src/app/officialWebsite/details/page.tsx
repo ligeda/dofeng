@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
-import { RightFloatingActions } from "@/app/01-right/right-floating-actions";
+import { RightFloatingActions } from "@/app/officialWebsite/01-right/right-floating-actions";
 import { Footer } from "@/components/blocks/footer";
 import { Navbar } from "@/components/blocks/navbar";
 
@@ -45,7 +45,12 @@ type DetailsTabsBarProps = {
   className?: string;
 };
 
-function DetailsTabsBar({ activeTab, tabLabels, onTabChange, className }: DetailsTabsBarProps) {
+function DetailsTabsBar({
+  activeTab,
+  tabLabels,
+  onTabChange,
+  className,
+}: DetailsTabsBarProps) {
   return (
     <div className={`border-b border-[#d7d7d7] bg-white ${className ?? ""}`}>
       <div className="mx-auto flex w-full items-center justify-between px-6">
@@ -71,7 +76,11 @@ function DetailsTabsBar({ activeTab, tabLabels, onTabChange, className }: Detail
   );
 }
 
-function DetailsIntroSection({ onStickyChange }: { onStickyChange: (isSticky: boolean) => void }) {
+function DetailsIntroSection({
+  onStickyChange,
+}: {
+  onStickyChange: (isSticky: boolean) => void;
+}) {
   const searchParams = useSearchParams();
   const tabLabels = useMemo(() => {
     const tab1 = searchParams.get("tab1")?.trim();
@@ -185,7 +194,9 @@ function TechFeatureSection({
           </div>
         </div>
         <div className="w-1/2 space-y-6">
-          <h3 className="text-4xl font-black tracking-wide text-black lg:text-5xl">{title}</h3>
+          <h3 className="text-4xl font-black tracking-wide text-black lg:text-5xl">
+            {title}
+          </h3>
           <p className="max-w-xl text-lg leading-9 text-black/75">{description}</p>
         </div>
       </div>
